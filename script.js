@@ -13,13 +13,19 @@ var canobaixo = new Image();
 canobaixo.src = "images/canobaixo.png"
 var canocima = new Image();
 canocima.src = "images/canocima.png"
+var cano = [];
+
+cano[0] = {
+    x : canvas.width,
+    y : 0
+}
 
 // variaveis 
 
 let eec = 100;
 let constant 
-let bx = 33;
-let by = 200;
+let bX = 33;
+let bY = 200;
 let gravidade = 1.4;
 let score = 0;
 
@@ -29,3 +35,32 @@ let fly = new Audio();
 fly.src = "sounds/fly.mp3"
 let pontos = new Audio();
 pontos.src = "sounds/score.mp3"
+
+
+
+    // captura de teclas
+    document.addEventListener("keydown",voa)
+
+    //função voando
+
+    function voa() {
+        bY = bY - 26;
+        fly.play();
+    }
+
+function jogo() {
+    // função do jogo
+    ctx.drawImage(bg,0,0);
+    //drawImage(Imagem X,Y)
+
+    //desenhando o chao
+    ctx.drawImage(chao,0,canvas.height - chao.height);
+
+    // desenhando passaro
+    ctx.drawImage(bird,bX,bY);
+    bY += gravidade;
+    requestAnimationFrame(jogo);
+}
+
+jogo();
+    
