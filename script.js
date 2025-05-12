@@ -45,7 +45,7 @@ pontos.src = "sounds/score.mp3"
 
     function voa() {
         bY = bY - 26;
-        fly.play();
+        
     }
 
 function jogo() {
