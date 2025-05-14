@@ -45,13 +45,21 @@ pontos.src = "sounds/score.mp3"
 
     function voa() {
         bY = bY - 26;
-        fly.play()
+        fly.play();
     }
 
 function jogo() {
     // função do jogo
     ctx.drawImage(bg,0,0);
     //drawImage(Imagem X,Y)
+
+
+    // crinado canos
+    for(let i = 0; i < cano.length; i++) {
+        // posição do cano de baixo
+        constant = canocima.height + eec;
+    }
+
 
     //desenhando o chao
     ctx.drawImage(chao,0,canvas.height - chao.height);
