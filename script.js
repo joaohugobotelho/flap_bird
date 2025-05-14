@@ -83,6 +83,12 @@ function jogo() {
             || bY + bird.height >= canvas.height - chao.height) {
                 location.reload();
             }
+
+            // marcando pontos
+            if(cano[i].x == 5) {
+                score = score + 1;
+                pontos.play();
+            }
     }
 
 
@@ -92,6 +98,12 @@ function jogo() {
     // desenhando passaro
     ctx.drawImage(bird,bX,bY);
     bY += gravidade;
+
+    // criando placar
+    ctx.fillStyle = "#000";
+    ctx.font = "20px Verdana";
+    ctx.fillText ("Placar: " + score, 10, canvas.height - 20)
+    
     requestAnimationFrame(jogo);
 }
 
