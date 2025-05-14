@@ -74,6 +74,15 @@ function jogo() {
                 
             })
         }
+        
+        // passaro entre as bordas do cano
+       if(bX + bird.width >= cano[i].x && bX <= cano[i].x + canocima.width
+            // passaro colidiu com o cano de cima ou de baixo 
+            && (bY <= cano[i].y + canocima.height || bY + bird.height >= cano[i].y + constant)
+            // passaro colidiu com o chao
+            || bY + bird.height >= canvas.height - chao.height) {
+                location.reload();
+            }
     }
 
 
