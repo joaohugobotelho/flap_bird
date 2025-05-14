@@ -26,7 +26,7 @@ let eec = 100;
 let constant 
 let bX = 33;
 let bY = 200;
-let gravidade = 1.4;
+let gravidade = 0.6;
 let score = 0;
 
 // carregando sons 
@@ -44,7 +44,7 @@ pontos.src = "sounds/score.mp3"
     //função voando
 
     function voa() {
-        bY = bY - 26;
+        bY = bY - 40;
         fly.play();
     }
 
@@ -58,6 +58,22 @@ function jogo() {
     for(let i = 0; i < cano.length; i++) {
         // posição do cano de baixo
         constant = canocima.height + eec;
+
+        // configurando do cano de cima
+        ctx.drawImage(canocima, cano[i].x, cano[i].y);
+
+        // configrando cano de baixo
+        ctx.drawImage(canobaixo, cano[i].x, cano[i].y + constant);
+
+        // movimentação do cano
+        cano[i].x = cano[i].x - 0.5;
+        if(cano[i].x == 125) {
+            cano.push({
+                x : canvas.width,
+                y : Math.floor(Math.random() * canocima.height) - canocima.height
+                
+            })
+        }
     }
 
 
